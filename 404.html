@@ -8,48 +8,43 @@
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="robots" content="noindex">
   <title>Page not found | Northlink</title>
+  <meta name="theme-color" content="#FBFAF8" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0B0D11" media="(prefers-color-scheme: dark)">
   <meta name="color-scheme" content="light dark">
-  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
-  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/brand/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="/assets/brand/favicon-16.png" type="image/png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="preload" href="/assets/fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-  <svg class="svg-defs" aria-hidden="true" focusable="false" width="0" height="0">
-    <defs>
-      <linearGradient id="mark-grad" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
-        <stop offset="0" class="mark-stop-a"/>
-        <stop offset="1" class="mark-stop-b"/>
-      </linearGradient>
-      <symbol id="mark" viewBox="0 0 32 32">
-        <rect width="32" height="32" rx="8" fill="url(#mark-grad)"/>
-        <path d="M9.5 22.5V9.5L22.5 22.5V9.5" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-        <circle cx="9.5" cy="9.5" r="2.4" fill="#fff"/>
-        <circle cx="22.5" cy="22.5" r="2.4" fill="#fff"/>
-      </symbol>
-    </defs>
-  </svg>
-
+  <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
-    <div class="wrap nav-bar">
-      <a class="logo" href="/" aria-label="Northlink home">
-        <svg class="logo-mark" width="30" height="30" aria-hidden="true" focusable="false"><use href="#mark"/></svg>
-        <span class="logo-text">
-          <span class="brand-name">Northlink</span>
-          <span class="logo-sub">a Mado Digital company</span>
-        </span>
+    <div class="container site-header-inner">
+      <a class="brand" href="/">
+        <picture class="brand-logo">
+          <source srcset="/assets/brand/logo-mn-horizontal-dark.svg" media="(prefers-color-scheme: dark)">
+          <img src="/assets/brand/logo-mn-horizontal.svg" alt="Northlink" width="157" height="32">
+        </picture>
+        <span class="brand-sub">a Mado Digital company</span>
       </a>
     </div>
   </header>
 
-  <main id="main" class="lost">
-    <div class="wrap">
-      <p class="lost-code">Error 404</p>
-      <h1 class="hero-title">This page doesn't exist.</h1>
-      <p class="hero-lead">The link may be old, or the page may have moved.</p>
-      <div class="cta-row hero-cta">
-        <a class="btn btn-primary btn-lg" href="/">Go to the homepage</a>
-        <a class="btn btn-secondary btn-lg" href="mailto:kiowa@madodigital.net">Email us</a>
+  <main id="main" class="lost" tabindex="-1">
+    <div class="container">
+      <picture class="lost-mark">
+        <source srcset="/assets/brand/mark-mn-dark.svg" media="(prefers-color-scheme: dark)">
+        <img src="/assets/brand/mark-mn.svg" alt="" width="42" height="56">
+      </picture>
+      <p class="eyebrow">Error 404</p>
+      <h1 class="h1">This page doesn't exist</h1>
+      <p class="lead">The link may be old, or the page may have moved.</p>
+      <div class="hero-ctas">
+        <a class="btn btn--primary" href="/">Go to the homepage</a>
+        <a class="btn btn--secondary" href="mailto:kiowa@madodigital.net">Email us</a>
       </div>
     </div>
   </main>

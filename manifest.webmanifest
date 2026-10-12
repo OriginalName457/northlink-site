@@ -1,0 +1,16 @@
+{
+  "name": "Northlink",
+  "short_name": "Northlink",
+  "description": "Minnesota IT support and cybersecurity, 100% US-based.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "browser",
+  "background_color": "#FBFAF8",
+  "theme_color": "#FBFAF8",
+  "icons": [
+    { "src": "/assets/brand/favicon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "/assets/brand/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/assets/brand/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/brand/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
