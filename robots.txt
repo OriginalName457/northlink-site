@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://harbor.madodigital.net/sitemap.xml
+Sitemap: https://northlink.madodigital.net/sitemap.xml

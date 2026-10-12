@@ -1,10 +1,7 @@
-The font files in this folder are licensed under the SIL Open Font License, Version 1.1.
+The font file in this folder is licensed under the SIL Open Font License, Version 1.1.
 Full license text: https://openfontlicense.org/open-font-license-official-text/
 
 inter-latin.woff2
   Inter. Copyright 2016 The Inter Project Authors (https://github.com/rsms/inter)
 
-newsreader-latin.woff2, newsreader-italic-latin.woff2
-  Newsreader. Copyright 2020 The Newsreader Project Authors (https://github.com/productiontype/Newsreader)
-
-Files are the latin subsets served by Google Fonts, stored here so the site makes no third-party requests.
+The file is the latin subset served by Google Fonts, stored here so the site makes no third-party requests.
