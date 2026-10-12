@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- Same CSP as index.html. frame-ancestors cannot be set from a meta tag on GitHub Pages. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'none'; base-uri 'self'; form-action 'none'; object-src 'none'; manifest-src 'self'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="robots" content="noindex">
+  <title>Page not found | Mado Harbor</title>
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <svg class="svg-defs" aria-hidden="true" focusable="false" width="0" height="0">
+    <defs>
+      <linearGradient id="mado-grad" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+        <stop offset="0" class="mado-stop-a"/>
+        <stop offset="1" class="mado-stop-b"/>
+      </linearGradient>
+      <symbol id="mark" viewBox="0 0 32 32">
+        <rect width="32" height="32" rx="8" fill="url(#mado-grad)"/>
+        <path d="M7.75 24.5V17.25a4.25 4.25 0 0 1 8.5 0M16.25 17.25a4.25 4.25 0 0 1 8.5 0V24.5M16.25 17.25V24.5" fill="none" stroke="#fff" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="16.25" cy="8.6" r="1.75" fill="#fff"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <header class="site-header">
+    <div class="wrap nav-bar">
+      <a class="logo" href="/" aria-label="Mado Harbor home">
+        <svg class="logo-mark" width="32" height="32" aria-hidden="true" focusable="false"><use href="#mark"/></svg>
+        <span class="logo-text">
+          <span class="brand-name">Mado Harbor</span>
+          <span class="logo-sub">a division of Mado Digital</span>
+        </span>
+      </a>
+    </div>
+  </header>
+
+  <main id="main" class="lost">
+    <div class="wrap">
+      <svg class="harbor harbor-still" viewBox="24 112 616 340" role="img" aria-labelledby="lost-title">
+        <title id="lost-title">Line drawing of a lighthouse shining out over empty water.</title>
+        <defs>
+          <linearGradient id="beam-grad-404" gradientUnits="userSpaceOnUse" x1="150" y1="0" x2="630" y2="0">
+            <stop offset="0" class="beam-stop-a"/>
+            <stop offset="0.5" class="beam-stop-b"/>
+            <stop offset="0.92" class="beam-stop-c"/>
+          </linearGradient>
+        </defs>
+        <path d="M150 168 L632 214 L632 330 Z" fill="url(#beam-grad-404)"/>
+        <g class="hb-water" fill="none" stroke-linecap="round">
+          <path d="M40 372 q14 -5 28 0 t28 0 t28 0"/>
+          <path d="M300 352 q14 -5 28 0 t28 0 t28 0 t28 0"/>
+          <path d="M180 398 q14 -5 28 0 t28 0 t28 0 t28 0 t28 0"/>
+          <path d="M450 380 q14 -5 28 0 t28 0 t28 0 t28 0"/>
+          <path d="M70 430 q14 -5 28 0 t28 0 t28 0"/>
+          <path d="M330 436 q14 -5 28 0 t28 0 t28 0 t28 0 t28 0 t28 0"/>
+        </g>
+        <g class="hb-line" fill="none" stroke-linejoin="round" stroke-linecap="round">
+          <path d="M36 344 H262"/>
+          <path d="M36 344 L46 356 H254 L262 344"/>
+          <path d="M70 344 V356 M110 344 V356 M190 344 V356 M230 344 V356"/>
+          <path d="M250 344 V324 H260 V344"/>
+          <path d="M126 344 L136 196 H164 L174 344"/>
+          <path d="M131 270 H169"/>
+          <path d="M133 232 H167"/>
+          <path d="M128 196 H172"/>
+          <path d="M132 196 V188 H168 V196"/>
+          <path d="M138 188 V156 H162 V188"/>
+          <path d="M150 156 V172"/>
+          <path d="M134 156 L150 140 L166 156 Z"/>
+          <path d="M150 140 V133"/>
+        </g>
+        <path class="hb-shield" d="M150 312 L159 315.5 V324 C159 331 155 335 150 337 C145 335 141 331 141 324 V315.5 Z" fill="none" stroke-linejoin="round"/>
+        <circle class="lamp lamp-still" cx="150" cy="172" r="6.5"/>
+      </svg>
+      <h1 class="hero-title">Nothing's moored here.</h1>
+      <p class="lead">The page you wanted isn't at this address.</p>
+      <a class="btn btn-primary btn-lg" href="/">Back to the harbor</a>
+      <p class="lost-contact">Or email us at <a href="mailto:kiowa@madodigital.net">kiowa@madodigital.net</a>.</p>
+    </div>
+  </main>
+</body>
+</html>
