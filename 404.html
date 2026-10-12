@@ -33,7 +33,7 @@
   <header class="site-header">
     <div class="wrap nav-bar">
       <a class="logo" href="/" aria-label="Northlink home">
-        <svg class="logo-mark" width="32" height="32" aria-hidden="true" focusable="false"><use href="#mark"/></svg>
+        <svg class="logo-mark" width="30" height="30" aria-hidden="true" focusable="false"><use href="#mark"/></svg>
         <span class="logo-text">
           <span class="brand-name">Northlink</span>
           <span class="logo-sub">a Mado Digital company</span>
@@ -43,36 +43,14 @@
   </header>
 
   <main id="main" class="lost">
-    <div class="hero-bg" aria-hidden="true"></div>
     <div class="wrap">
-      <svg class="lost-art" viewBox="0 0 340 120" role="img" aria-labelledby="lost-title">
-        <title id="lost-title">Diagram: a connected node, and a dashed link leading to an empty spot where a page should be.</title>
-        <defs>
-          <linearGradient id="hub-grad-404" x1="-30" y1="-30" x2="30" y2="30" gradientUnits="userSpaceOnUse">
-            <stop offset="0" class="mark-stop-a"/>
-            <stop offset="1" class="mark-stop-b"/>
-          </linearGradient>
-        </defs>
-        <line class="link" x1="74" y1="60" x2="134" y2="60"/>
-        <line class="link-broken" x1="206" y1="60" x2="266" y2="60"/>
-        <g transform="translate(48 60)">
-          <circle class="node-bg" r="24"/>
-          <path class="node-icon" transform="translate(-12 -12)" d="M5.5 6h13a1 1 0 0 1 1 1v8.5h-15V7a1 1 0 0 1 1-1zM2.5 18.5h19"/>
-        </g>
-        <g transform="translate(170 60)">
-          <circle r="34" fill="url(#hub-grad-404)"/>
-          <path class="hub-icon" transform="translate(-15.6 -15.6) scale(1.3)" d="M12 3l7.5 3v5.5c0 4.6-3.2 8.3-7.5 9.5-4.3-1.2-7.5-4.9-7.5-9.5V6z"/>
-        </g>
-        <g transform="translate(292 60)">
-          <circle class="node-missing" r="24"/>
-          <text class="q" x="0" y="6" text-anchor="middle">?</text>
-        </g>
-      </svg>
-      <p class="eyebrow lost-code">Error 404 <span class="sep" aria-hidden="true">/</span> Not found</p>
-      <h1 class="hero-title">There's nothing at this address.</h1>
-      <p class="lead">The link may be old, or the page may have moved.</p>
-      <a class="btn btn-primary btn-lg" href="/">Go to the homepage</a>
-      <p class="lost-contact">Or email us at <a href="mailto:kiowa@madodigital.net">kiowa@madodigital.net</a>.</p>
+      <p class="lost-code">Error 404</p>
+      <h1 class="hero-title">This page doesn't exist.</h1>
+      <p class="hero-lead">The link may be old, or the page may have moved.</p>
+      <div class="cta-row hero-cta">
+        <a class="btn btn-primary btn-lg" href="/">Go to the homepage</a>
+        <a class="btn btn-secondary btn-lg" href="mailto:kiowa@madodigital.net">Email us</a>
+      </div>
     </div>
   </main>
 </body>

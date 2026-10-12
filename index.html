@@ -3,13 +3,12 @@
   BRAND NAME LOCATIONS. Every place "Northlink" appears:
     1. <title>, <meta name="description"> and og:title / og:site_name
     2. canonical, og:url and og:image (https://northlink.madodigital.net/)
-    3. Nav logo wordmark and footer wordmark (span.brand-name)
-    4. Footer copyright line (span.brand-name)
-    5. aria-label on the home link (nav and footer)
-    6. 404.html title, logo and aria-label
-    7. CNAME, sitemap.xml, robots.txt and .well-known/security.txt
+    3. Nav and footer wordmarks (span.brand-name) and the footer company line
+    4. aria-label on the home links (nav and footer)
+    5. 404.html title, logo and aria-label
+    6. CNAME, sitemap.xml, robots.txt and .well-known/security.txt
   The parent company appears as "a Mado Digital company" (nav sublabel, footer).
-  Body copy says "we" and "us". To rename: grep -rn "Northlink" .
+  To rename: grep -rn "Northlink" .
 -->
 <html lang="en">
 <head>
@@ -22,10 +21,10 @@
   -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'none'; base-uri 'self'; form-action 'none'; object-src 'none'; manifest-src 'self'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <title>Northlink | Managed IT support and cybersecurity in Minnesota</title>
-  <meta name="description" content="Northlink is a two-person managed IT and cybersecurity team in Minnesota. Helpdesk, Microsoft 365 and Teams, networking, backups, device management and security monitoring for businesses and nonprofits.">
-  <meta name="theme-color" content="#F7F9FC" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0A0F1A" media="(prefers-color-scheme: dark)">
+  <title>Northlink | IT support and cybersecurity, available 24/7</title>
+  <meta name="description" content="Northlink runs IT support and cybersecurity for businesses and nonprofits in Minnesota. Real people answer around the clock, and when something goes wrong we handle it from start to finish.">
+  <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0B0F17" media="(prefers-color-scheme: dark)">
   <meta name="color-scheme" content="light dark">
   <link rel="canonical" href="https://northlink.madodigital.net/">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
@@ -35,12 +34,12 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://northlink.madodigital.net/">
   <meta property="og:site_name" content="Northlink">
-  <meta property="og:title" content="Northlink | Managed IT support and cybersecurity in Minnesota">
-  <meta property="og:description" content="Helpdesk, Microsoft 365, networking, backups and security for businesses and nonprofits, from a two-person Minnesota team that knows your setup.">
+  <meta property="og:title" content="Northlink | IT support and cybersecurity, available 24/7">
+  <meta property="og:description" content="IT support and security for businesses and nonprofits. Real people answer around the clock, and we handle problems from start to finish.">
   <meta property="og:image" content="https://northlink.madodigital.net/assets/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Northlink logo with the words Managed IT and cybersecurity, next to a diagram of offices and cloud services connected through a central security node.">
+  <meta property="og:image:alt" content="Northlink logo with the words: IT support and security that's there when you need it. 24/7, real people, any hour.">
   <meta name="twitter:card" content="summary_large_image">
 
   <!-- Fonts are self-hosted (assets/fonts), so the page makes no third-party requests. -->
@@ -49,7 +48,6 @@
   <script src="main.js" defer></script>
 </head>
 <body>
-  <!-- Shared SVG definitions: logo gradient and mark -->
   <svg class="svg-defs" aria-hidden="true" focusable="false" width="0" height="0">
     <defs>
       <linearGradient id="mark-grad" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
@@ -71,648 +69,169 @@
   <header class="site-header">
     <div class="wrap nav-bar">
       <a class="logo" href="#top" aria-label="Northlink, back to top">
-        <svg class="logo-mark" width="32" height="32" aria-hidden="true" focusable="false"><use href="#mark"/></svg>
+        <svg class="logo-mark" width="30" height="30" aria-hidden="true" focusable="false"><use href="#mark"/></svg>
         <span class="logo-text">
           <span class="brand-name">Northlink</span>
           <span class="logo-sub">a Mado Digital company</span>
         </span>
       </a>
-
       <nav class="nav-links" aria-label="Primary">
         <ul>
           <li><a href="#services">Services</a></li>
-          <li><a href="#security">Security</a></li>
-          <li><a href="#how-it-works">How it works</a></li>
-          <li><a href="#team">Team</a></li>
-          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#why">Why Northlink</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
-
-      <div class="nav-actions">
-        <a class="btn btn-primary btn-sm nav-cta" href="mailto:kiowa@madodigital.net?subject=IT%20assessment%20request&amp;body=Hi%2C%0D%0A%0D%0AOrganization%20name%3A%20%0D%0ANumber%20of%20offices%3A%20%0D%0ARough%20staff%20count%3A%20%0D%0ABest%20time%20to%20talk%3A%20%0D%0A%0D%0AAnything%20else%20we%20should%20know%3A%20%0D%0A">
-          <span class="nav-cta-long">Book a free IT assessment</span><span class="nav-cta-short">Book<span class="sr-only"> a free IT assessment</span></span>
-        </a>
-        <button class="btn btn-ghost btn-sm menu-btn" type="button" aria-expanded="false" aria-controls="menu-sheet" hidden>
-          <svg class="menu-icon" width="18" height="18" viewBox="0 0 18 18" aria-hidden="true" focusable="false"><path class="menu-line-1" d="M2 6h14"/><path class="menu-line-2" d="M2 12h14"/></svg>
-          <span class="menu-label">Menu</span>
-        </button>
-      </div>
-    </div>
-
-    <div class="menu-sheet" id="menu-sheet">
-      <nav class="wrap" aria-label="Primary">
-        <ul>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#security">Security</a></li>
-          <li><a href="#how-it-works">How it works</a></li>
-          <li><a href="#team">Team</a></li>
-          <li><a href="#faq">FAQ</a></li>
-        </ul>
-        <a class="btn btn-primary btn-block" href="mailto:kiowa@madodigital.net?subject=IT%20assessment%20request&amp;body=Hi%2C%0D%0A%0D%0AOrganization%20name%3A%20%0D%0ANumber%20of%20offices%3A%20%0D%0ARough%20staff%20count%3A%20%0D%0ABest%20time%20to%20talk%3A%20%0D%0A%0D%0AAnything%20else%20we%20should%20know%3A%20%0D%0A">Book a free IT assessment</a>
-      </nav>
+      <a class="btn btn-primary btn-sm nav-cta" href="mailto:kiowa@madodigital.net?subject=IT%20assessment%20request&amp;body=Hi%2C%0D%0A%0D%0AOrganization%20name%3A%20%0D%0ANumber%20of%20offices%3A%20%0D%0ARough%20staff%20count%3A%20%0D%0ABest%20time%20to%20talk%3A%20%0D%0A%0D%0AAnything%20else%20we%20should%20know%3A%20%0D%0A"><span class="nav-cta-long">Book a free IT assessment</span><span class="nav-cta-short">Book assessment</span></a>
     </div>
   </header>
 
   <main id="main" tabindex="-1">
     <span id="top" class="anchor-top" aria-hidden="true"></span>
 
-    <!-- 1. Hero -->
     <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-bg" aria-hidden="true"></div>
-      <div class="wrap hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow hero-in">Managed IT <span class="sep" aria-hidden="true">/</span> Cybersecurity <span class="sep" aria-hidden="true">/</span> Helpdesk</p>
-          <h1 id="hero-title" class="hero-title hero-in hero-d1">IT support and <span class="grad-text">cybersecurity</span> for your whole organization.</h1>
-          <p class="lead hero-in hero-d2">We're a two-person IT team in Minnesota. We run the helpdesk, Microsoft 365 and Teams, office networks, backups and security monitoring for businesses and nonprofits, with one office or several. We take over from your current provider and work with the setup you already have. When your staff need help, they reach the same two people who look after their systems.</p>
-          <div class="cta-row hero-in hero-d3">
-            <a class="btn btn-primary btn-lg" href="mailto:kiowa@madodigital.net?subject=IT%20assessment%20request&amp;body=Hi%2C%0D%0A%0D%0AOrganization%20name%3A%20%0D%0ANumber%20of%20offices%3A%20%0D%0ARough%20staff%20count%3A%20%0D%0ABest%20time%20to%20talk%3A%20%0D%0A%0D%0AAnything%20else%20we%20should%20know%3A%20%0D%0A">
-              Book a free IT assessment <span class="btn-arrow" aria-hidden="true">&rarr;</span>
-            </a>
-            <a class="btn btn-ghost btn-lg" href="#services">See services</a>
-          </div>
-          <p class="reassure hero-in hero-d4">Flat monthly pricing, with nonprofit rates. Quoted after a free assessment.</p>
-        </div>
-
-        <figure class="console hero-in hero-d2" aria-labelledby="console-cap">
-          <div class="console-head">
-            <span class="console-title"><span class="live-dot" aria-hidden="true"></span>Network overview</span>
-            <span class="console-tag">Illustration</span>
-          </div>
-
-          <div class="topo-wrap">
-            <svg class="topo" viewBox="0 0 480 268" role="img" aria-labelledby="topo-title">
-              <title id="topo-title">Diagram: a main office, a branch office, remote staff, Microsoft 365 and backups, each connected through one central security node.</title>
-              <defs>
-                <linearGradient id="hub-grad" x1="-40" y1="-40" x2="40" y2="40" gradientUnits="userSpaceOnUse">
-                  <stop offset="0" class="mark-stop-a"/>
-                  <stop offset="1" class="mark-stop-b"/>
-                </linearGradient>
-              </defs>
-
-              <!-- links: each drawn along its own rotated axis so it can grow with a transform -->
-              <g class="links">
-                <g transform="translate(240 150) rotate(-90)"><line class="link l1" x1="44" y1="0" x2="84" y2="0"/><circle class="packet p1" cx="44" cy="0" r="2.5"/></g>
-                <g transform="translate(240 150) rotate(-160.74)"><line class="link l2" x1="44" y1="0" x2="147.8" y2="0"/><circle class="packet p2" cx="44" cy="0" r="2.5"/></g>
-                <g transform="translate(240 150) rotate(159.52)"><line class="link l3" x1="44" y1="0" x2="149.2" y2="0"/><circle class="packet p3" cx="44" cy="0" r="2.5"/></g>
-                <g transform="translate(240 150) rotate(-19.26)"><line class="link l4" x1="44" y1="0" x2="147.8" y2="0"/><circle class="packet p4" cx="44" cy="0" r="2.5"/></g>
-                <g transform="translate(240 150) rotate(20.48)"><line class="link l5" x1="44" y1="0" x2="149.2" y2="0"/><circle class="packet p5" cx="44" cy="0" r="2.5"/></g>
-              </g>
-
-              <!-- satellite nodes -->
-              <g transform="translate(240 38)">
-                <g class="node n1">
-                  <circle class="node-bg" r="26"/>
-                  <path class="node-icon" transform="translate(-12 -12)" d="M7 18h10a4 4 0 0 0 .6-7.95A5.5 5.5 0 0 0 7.1 9.1 4.5 4.5 0 0 0 7 18z"/>
-                  <text class="node-label" x="36" y="4">Microsoft 365</text>
-                </g>
-              </g>
-              <g transform="translate(74 92)">
-                <g class="node n2">
-                  <circle class="node-bg" r="26"/>
-                  <path class="node-icon" transform="translate(-12 -12)" d="M5 20V7l7-3 7 3v13M3 20h18M9 9.5h.01M15 9.5h.01M9 13.5h.01M15 13.5h.01M10.5 20v-3h3v3"/>
-                  <text class="node-label" x="0" y="44" text-anchor="middle">Main office</text>
-                </g>
-              </g>
-              <g transform="translate(74 212)">
-                <g class="node n3">
-                  <circle class="node-bg" r="26"/>
-                  <path class="node-icon" transform="translate(-12 -12)" d="M4 20v-9h16v9M3 20h18M10 11V6.5h4V11M8 15h2M14 15h2"/>
-                  <text class="node-label" x="0" y="44" text-anchor="middle">Branch office</text>
-                </g>
-              </g>
-              <g transform="translate(406 92)">
-                <g class="node n4">
-                  <circle class="node-bg" r="26"/>
-                  <path class="node-icon" transform="translate(-12 -12)" d="M5.5 6h13a1 1 0 0 1 1 1v8.5h-15V7a1 1 0 0 1 1-1zM2.5 18.5h19"/>
-                  <text class="node-label" x="0" y="44" text-anchor="middle">Remote staff</text>
-                </g>
-              </g>
-              <g transform="translate(406 212)">
-                <g class="node n5">
-                  <circle class="node-bg" r="26"/>
-                  <path class="node-icon" transform="translate(-12 -12)" d="M5 6c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5-3.1-2.5-7-2.5S5 4.6 5 6zM5 6v12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V6M5 12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5"/>
-                  <text class="node-label" x="0" y="44" text-anchor="middle">Backups</text>
-                </g>
-              </g>
-
-              <!-- hub: the security layer every link passes through -->
-              <g transform="translate(240 150)">
-                <circle class="hub-pulse" r="38"/>
-                <g class="hub">
-                  <circle r="38" fill="url(#hub-grad)"/>
-                  <path class="hub-icon" transform="translate(-16.8 -16.8) scale(1.4)" d="M12 3l7.5 3v5.5c0 4.6-3.2 8.3-7.5 9.5-4.3-1.2-7.5-4.9-7.5-9.5V6z"/>
-                  <path class="hub-icon" transform="translate(-16.8 -16.8) scale(1.4)" d="M8.75 12l2.25 2.25 4.25-4.5"/>
-                </g>
-              </g>
-            </svg>
-          </div>
-
-          <ul class="status" aria-label="Sample status readout">
-            <li class="st st-1"><span class="st-name">Microsoft 365</span><span class="st-val"><span class="st-dot" aria-hidden="true"></span>Healthy</span></li>
-            <li class="st st-2"><span class="st-name">Backups</span><span class="st-val"><span class="st-dot" aria-hidden="true"></span>Verified 2:00 AM</span></li>
-            <li class="st st-3"><span class="st-name">Endpoints</span><span class="st-val"><span class="st-dot" aria-hidden="true"></span>24 protected</span></li>
-            <li class="st st-4"><span class="st-name">Threats blocked</span><span class="st-val st-val-plain">7 this week</span></li>
-          </ul>
-          <figcaption class="console-cap" id="console-cap">Illustration of what we keep an eye on. Sample values, not live client data.</figcaption>
-        </figure>
-      </div>
-
-      <!-- What we sell, at a glance -->
-      <div class="wrap tiles-wrap">
-        <h2 class="tiles-label hero-in hero-d4">What we look after</h2>
-        <ul class="tiles hero-in hero-d4">
-          <li>
-            <a class="tile" href="#helpdesk">
-              <svg class="tile-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/><path d="M19 20c0 1.5-2 2-5 2h-1.5"/></svg>
-              <span class="tile-name">Helpdesk</span>
-              <span class="tile-desc">Staff message us in Teams or email. One of us picks it up.</span>
-            </a>
-          </li>
-          <li>
-            <a class="tile" href="#cybersecurity">
-              <svg class="tile-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3l7.5 3v5.5c0 4.6-3.2 8.3-7.5 9.5-4.3-1.2-7.5-4.9-7.5-9.5V6z"/><path d="M8.75 12l2.25 2.25 4.25-4.5"/></svg>
-              <span class="tile-name">Cybersecurity</span>
-              <span class="tile-desc">Safer sign-ins, attack detection on every device, and help if you're hacked.</span>
-            </a>
-          </li>
-          <li>
-            <a class="tile" href="#microsoft-365">
-              <svg class="tile-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.5" y="3.5" width="7.5" height="7.5" rx="1.5"/><rect x="13" y="3.5" width="7.5" height="7.5" rx="1.5"/><rect x="3.5" y="13" width="7.5" height="7.5" rx="1.5"/><rect x="13" y="13" width="7.5" height="7.5" rx="1.5"/></svg>
-              <span class="tile-name">Microsoft 365 &amp; Teams</span>
-              <span class="tile-desc">Staff accounts, licenses, email, SharePoint and Teams Phone.</span>
-            </a>
-          </li>
-          <li>
-            <a class="tile" href="#networking">
-              <svg class="tile-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="9" y="3" width="6" height="5" rx="1"/><rect x="3" y="16" width="6" height="5" rx="1"/><rect x="15" y="16" width="6" height="5" rx="1"/><path d="M12 8v4M6 16v-2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/></svg>
-              <span class="tile-name">Networking</span>
-              <span class="tile-desc">Firewalls, Wi-Fi and private links between your offices.</span>
-            </a>
-          </li>
-          <li>
-            <a class="tile" href="#backup">
-              <svg class="tile-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><ellipse cx="10" cy="5.5" rx="6.5" ry="2.5"/><path d="M3.5 5.5v11c0 1.4 2.9 2.5 6.5 2.5"/><path d="M16.5 5.5v4"/><path d="M3.5 11c0 1.4 2.9 2.5 6.5 2.5"/><path d="M20.5 15a3.5 3.5 0 1 1-1.2-2.6"/><path d="M19.6 10.6v2h-2"/></svg>
-              <span class="tile-name">Backup &amp; recovery</span>
-              <span class="tile-desc">Email and file backups that we test by restoring them.</span>
-            </a>
-          </li>
-          <li>
-            <a class="tile" href="#devices">
-              <svg class="tile-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4.5" y="5" width="15" height="10.5" rx="1.5"/><path d="M2.5 19h19"/><path d="M10 12.5h4"/></svg>
-              <span class="tile-name">Devices</span>
-              <span class="tile-desc">Laptops and phones set up, kept updated, and wiped if lost.</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- 2. Who we serve -->
-    <section class="section sunk" id="who" aria-labelledby="who-title">
-      <div class="wrap grid">
-        <div class="col-5 who-intro">
-          <p class="eyebrow reveal">Who we work with</p>
-          <h2 id="who-title" class="h2 reveal reveal-d1">We fit into the setup you already have.</h2>
-          <p class="reveal reveal-d2">We work with any business or organization that wants to switch to us. You don't have to throw anything out to start. We take over what you run today, from your network and accounts to the hardware and software your staff use.</p>
-          <p class="reveal reveal-d3">If you have an in-house IT person, we can work alongside them.</p>
-        </div>
-        <div class="col-7 who-list-wrap">
-          <ul class="who-list">
-            <li class="reveal"><span class="who-n" aria-hidden="true">01</span>On Microsoft 365 or Google Workspace</li>
-            <li class="reveal reveal-d1"><span class="who-n" aria-hidden="true">02</span>One office or many</li>
-            <li class="reveal reveal-d2"><span class="who-n" aria-hidden="true">03</span>Moving from another IT provider, or from no one at all</li>
-            <li class="reveal reveal-d3"><span class="who-n" aria-hidden="true">04</span>With an in-house IT person, or without one</li>
-            <li class="reveal reveal-d4"><span class="who-n" aria-hidden="true">05</span>Businesses, nonprofits and offices that hold sensitive records</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- 3. Services -->
-    <section class="section" id="services" aria-labelledby="services-title">
-      <div class="wrap grid">
-        <div class="col-4 services-head">
-          <div class="sticky-head">
-            <p class="eyebrow reveal">Services</p>
-            <h2 id="services-title" class="h2 reveal reveal-d1">Everything your staff log in to, looked after.</h2>
-            <p class="reveal reveal-d2">One flat monthly price covers day-to-day help and the security work. The same two people do both, so whoever fixes a printer also knows who should have access to what.</p>
-          </div>
-        </div>
-
-        <div class="col-8">
-          <ul class="service-list">
-            <li class="service reveal" id="helpdesk">
-              <span class="service-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/><path d="M19 20c0 1.5-2 2-5 2h-1.5"/></svg></span>
-              <div class="service-body">
-                <h3 class="h3">Managed IT and helpdesk</h3>
-                <p>When something stops someone's work, they email us or message us in Teams, and one of us picks it up. Most fixes happen over a remote session. We already know their laptop, mailbox and office network, so nobody has to explain it all again.</p>
-                <ul class="chips" aria-label="Helpdesk includes"><li>Password resets and lockouts</li><li>Onboarding and offboarding</li><li>Printers, scanners and shared drives</li><li>Software installs and updates</li></ul>
-              </div>
-            </li>
-            <li class="service reveal" id="cybersecurity">
-              <span class="service-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false"><path d="M12 3l7.5 3v5.5c0 4.6-3.2 8.3-7.5 9.5-4.3-1.2-7.5-4.9-7.5-9.5V6z"/><path d="M8.75 12l2.25 2.25 4.25-4.5"/></svg></span>
-              <div class="service-body">
-                <h3 class="h3">Cybersecurity</h3>
-                <p>Most attacks start with a fake email or a stolen password. These fake emails (phishing) often look like an invoice or a shared file. We lock down accounts, email and devices, watch for signs of trouble, and step in right away if something gets through.</p>
-                <ul class="chips" aria-label="Cybersecurity includes"><li>MFA: a second check at every sign-in</li><li>Conditional access: blocks risky sign-ins, where licensed</li><li>EDR: spots and stops attacks on each device</li><li>Email filtering</li><li>SPF, DKIM and DMARC: stop fake mail from your domain</li><li>Updates installed on time</li><li>Help if you're hacked</li><li>Security training for staff</li></ul>
-              </div>
-            </li>
-            <li class="service reveal" id="microsoft-365">
-              <span class="service-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false"><rect x="3.5" y="3.5" width="7.5" height="7.5" rx="1.5"/><rect x="13" y="3.5" width="7.5" height="7.5" rx="1.5"/><rect x="3.5" y="13" width="7.5" height="7.5" rx="1.5"/><rect x="13" y="13" width="7.5" height="7.5" rx="1.5"/></svg></span>
-              <div class="service-body">
-                <h3 class="h3">Microsoft 365 and Teams</h3>
-                <p>We set up your Microsoft 365 account so it fits how your staff work, and check that you pay for the right licenses and nothing extra. Some protections on this page, like conditional access and Intune, need Business Premium or an add-on. We show you that cost before we suggest it. If you use Google Workspace, we look after that instead.</p>
-                <ul class="chips" aria-label="Microsoft 365 and Teams includes"><li>Entra ID: staff accounts and sign-in rules</li><li>License review, with nonprofit discounts</li><li>Email setup</li><li>Teams and SharePoint folders and permissions</li><li>Teams Phone and call routing</li></ul>
-              </div>
-            </li>
-            <li class="service reveal" id="networking">
-              <span class="service-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false"><rect x="9" y="3" width="6" height="5" rx="1"/><rect x="3" y="16" width="6" height="5" rx="1"/><rect x="15" y="16" width="6" height="5" rx="1"/><path d="M12 8v4M6 16v-2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/></svg></span>
-              <div class="service-body">
-                <h3 class="h3">Networking and multi-site</h3>
-                <p>Staff get the same files and the same Teams at every office. We split the network so guests can't reach staff computers or printers, and every site connects through a firewall we manage. We can usually keep the equipment you already have.</p>
-                <ul class="chips" aria-label="Networking includes"><li>Firewalls</li><li>Office Wi-Fi, with guest Wi-Fi kept separate</li><li>VLANs: separate networks on the same equipment</li><li>Site-to-site VPN: a private link between offices</li><li>Safe access from home</li></ul>
-              </div>
-            </li>
-            <li class="service reveal" id="backup">
-              <span class="service-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false"><ellipse cx="10" cy="5.5" rx="6.5" ry="2.5"/><path d="M3.5 5.5v11c0 1.4 2.9 2.5 6.5 2.5"/><path d="M16.5 5.5v4"/><path d="M3.5 11c0 1.4 2.9 2.5 6.5 2.5"/><path d="M20.5 15a3.5 3.5 0 1 1-1.2-2.6"/><path d="M19.6 10.6v2h-2"/></svg></span>
-              <div class="service-body">
-                <h3 class="h3">Backup and recovery</h3>
-                <p>A backup only counts if it restores, so we test yours. Phones need to keep ringing too, so we set up call routing that keeps your main line working if one office loses its internet.</p>
-                <ul class="chips" aria-label="Backup and recovery includes"><li>Email and file backups a hacked account can't delete</li><li>Test restores on a schedule</li><li>A written plan for the day an office goes offline</li></ul>
-              </div>
-            </li>
-            <li class="service reveal" id="devices">
-              <span class="service-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false"><rect x="4.5" y="5" width="15" height="10.5" rx="1.5"/><path d="M2.5 19h19"/><path d="M10 12.5h4"/></svg></span>
-              <div class="service-body">
-                <h3 class="h3">Devices</h3>
-                <p>We set up laptops and phones the same way every time and keep them updated. Where your licenses include it, we manage them with Intune, Microsoft's device tool. If one goes missing, we can lock or wipe it from here.</p>
-                <ul class="chips" aria-label="Devices includes"><li>Laptop and phone setup</li><li>Disk encryption and screen locks</li><li>Remote lock and wipe</li><li>System and app updates</li><li>Work data kept separate on personal phones</li></ul>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- 4. Security (the one deep band) -->
-    <section class="section deep" id="security" aria-labelledby="sec-title">
-      <div class="deep-bg" aria-hidden="true"></div>
-      <div class="wrap deep-inner">
-        <p class="eyebrow eyebrow-deep reveal">Security</p>
-        <h2 id="sec-title" class="h2 sec-title reveal reveal-d1">Security is part of the monthly work.</h2>
-        <p class="sec-intro reveal reveal-d2">It's in the same agreement as the helpdesk, and the same two people do it. Here is the basic setup we put in place for every client. During the assessment we check it against what you have now.</p>
-
-        <ul class="baseline reveal reveal-d2" aria-label="Security baseline">
-          <li><span class="bl-k">Sign-ins</span><span class="bl-v">MFA on every account, admins first. That's a second check, like a code on your phone. Where your licenses allow, we also block risky sign-ins.</span></li>
-          <li><span class="bl-k">Devices</span><span class="bl-v">EDR on every computer. It watches for attacks and stops them. Each device also gets updates and disk encryption.</span></li>
-          <li><span class="bl-k">Email</span><span class="bl-v">Filters catch phishing and malware. SPF, DKIM and DMARC are settings that stop strangers from sending email as you.</span></li>
-          <li><span class="bl-k">Network</span><span class="bl-v">Firewalls we manage, guest Wi-Fi kept apart from staff, and a safe way in for people working from home.</span></li>
-          <li><span class="bl-k">Backups</span><span class="bl-v">Copies a hacked account can't delete. We restore from them on a schedule to prove they work.</span></li>
-          <li><span class="bl-k">People</span><span class="bl-v">Short security training for staff, and hands-on help if something gets through.</span></li>
-        </ul>
-
-        <div class="sens">
-          <h3 class="sens-title reveal">When your records are sensitive</h3>
-          <p class="sens-intro reveal reveal-d1">Plenty of organizations hold information that would hurt someone if it got out: client files, health details, finances, home addresses. For some, a single exposed address or a forwarded email can put a person in danger. If that's you, we set things up with that in mind.</p>
-
-          <ul class="principles">
-            <li class="principle reveal">
-              <h4 class="principle-title">Locations stay private</h4>
-              <p>If any of your addresses are confidential, we keep them out of email signatures, shared calendars and device location settings. We also check what photos, Wi-Fi names and online listings give away, and help you get them taken down.</p>
-            </li>
-            <li class="principle reveal reveal-d1">
-              <h4 class="principle-title">Your data stays yours</h4>
-              <p>We don't open client files or mailboxes. Our everyday accounts can't reach them, we use separate admin accounts only when a task needs one, and admin activity is logged in your own Microsoft 365 account, where you can see it. If a fix ever brings us near client data, we ask first. Your organization owns its data, and we put that in writing.</p>
-            </li>
-            <li class="principle reveal reveal-d2">
-              <h4 class="principle-title">Least access, every login protected</h4>
-              <p>Staff see the records their role needs and nothing more. Every account gets MFA, admins included, and conditional access wherever your licenses include it. Nobody shares a login.</p>
-            </li>
-            <li class="principle reveal">
-              <h4 class="principle-title">Support without client details</h4>
-              <p>A support request never needs a client's name or address. We train staff to describe the problem, not the person. If client information lands in a support email by mistake, we delete it and tell you.</p>
-            </li>
-            <li class="principle reveal reveal-d1">
-              <h4 class="principle-title">Built around your rules</h4>
-              <p>Many organizations work under rules about who can see what: HIPAA for health information, confidentiality duties for legal and financial clients, and VAWA and FVPSA for survivor services. We set up your tools to fit the rules you work under and keep our own access as narrow as the work allows.</p>
-            </li>
-            <li class="principle reveal reveal-d2">
-              <h4 class="principle-title">Staff safety counts too</h4>
-              <p>When someone on your staff is being harassed or targeted online, we help lock down their accounts and devices. Then we walk them through what was exposed and what to change.</p>
-            </li>
-          </ul>
-        </div>
-
-        <p class="sec-foot reveal">During the assessment we check each of these against your setup and show you what we found. Questions before then? <a href="mailto:kiowa@madodigital.net?subject=Security%20question">Email us.</a></p>
-      </div>
-    </section>
-
-    <!-- 5. How it works: 30/60/90, then switching -->
-    <section class="section" id="how-it-works" aria-labelledby="how-title">
       <div class="wrap">
-        <div class="section-head">
-          <p class="eyebrow reveal">How it works</p>
-          <h2 id="how-title" class="h2 reveal reveal-d1">The first ninety days, written down before we start.</h2>
-          <p class="lead reveal reveal-d2">It starts with a free assessment. We visit, look at your network, Microsoft 365, devices and backups, and give you a written summary whether or not you hire us. If you do, this is the plan.</p>
+        <h1 id="hero-title" class="hero-title fade-in">IT support and security that's there when you need it.</h1>
+        <p class="hero-lead fade-in fade-d1">We run IT for businesses and nonprofits, from the helpdesk to cybersecurity. Real people answer at any hour, and we take over the setup you already have.</p>
+        <div class="cta-row fade-in fade-d2">
+          <a class="btn btn-primary btn-lg" href="mailto:kiowa@madodigital.net?subject=IT%20assessment%20request&amp;body=Hi%2C%0D%0A%0D%0AOrganization%20name%3A%20%0D%0ANumber%20of%20offices%3A%20%0D%0ARough%20staff%20count%3A%20%0D%0ABest%20time%20to%20talk%3A%20%0D%0A%0D%0AAnything%20else%20we%20should%20know%3A%20%0D%0A">Book a free IT assessment</a>
+          <a class="btn btn-secondary btn-lg" href="#services">See services</a>
+        </div>
+        <p class="hero-note fade-in fade-d2">Available 24/7. Flat monthly pricing, with lower rates for nonprofits.</p>
+      </div>
+    </section>
+
+    <section class="section why" id="why" aria-labelledby="why-title">
+      <div class="wrap">
+        <h2 id="why-title" class="h2">IT you can count on, from people you can reach.</h2>
+
+        <div class="always">
+          <p class="always-figure" aria-hidden="true">24/7</p>
+          <div class="always-copy">
+            <h3 class="always-title">We're available around the clock.</h3>
+            <p>Reach us at night or on a holiday and you still get help. Urgent problems get a response at any hour, every day of the year.</p>
+          </div>
         </div>
 
-        <ol class="timeline reveal">
-          <li class="tl-step reveal">
-            <span class="tl-node" aria-hidden="true"></span>
-            <p class="tl-days">Days 1&ndash;30</p>
-            <h3 class="h3">Learn your setup, fix what's urgent</h3>
-            <ul class="tl-items">
-              <li>Walk every site and meet the staff</li>
-              <li>Learn the tools and equipment you already use</li>
-              <li>Turn on MFA for every account, admins first</li>
-              <li>Document what exists, from routers to licenses</li>
-              <li>Take over admin access properly, with nothing left in a former vendor's name</li>
-              <li>Fix anything urgent we find along the way</li>
-            </ul>
+        <div class="points">
+          <div class="point">
+            <h3 class="h3">Real people who know your setup</h3>
+            <p>When you reach out, a person answers. They already know your systems, so you don't have to explain everything from the start.</p>
+          </div>
+          <div class="point">
+            <h3 class="h3">We handle the whole problem</h3>
+            <p>If an office goes offline or an account gets hacked, we stay on it until it's fixed and cleaned up. Then we tell you what happened.</p>
+          </div>
+          <div class="point">
+            <h3 class="h3">IT that's set up properly</h3>
+            <p>We set things up carefully, keep them updated and test your backups by restoring them. That means fewer surprises in the first place.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section services" id="services" aria-labelledby="services-title">
+      <div class="wrap split">
+        <div class="split-head">
+          <h2 id="services-title" class="h2">What we look after.</h2>
+          <p class="section-lead">One flat monthly price covers day-to-day support and security.</p>
+        </div>
+        <dl class="service-list">
+          <div class="service"><dt>Helpdesk</dt><dd>Help for your staff whenever something stops working.</dd></div>
+          <div class="service"><dt>Cybersecurity</dt><dd>Protection for sign-ins and email, plus attack detection on every device. Sensitive records get extra care.</dd></div>
+          <div class="service"><dt>Microsoft 365 and Teams</dt><dd>Accounts, email, files and licenses, set up and kept tidy. We work with Google Workspace too.</dd></div>
+          <div class="service"><dt>Networks and Wi-Fi</dt><dd>Secure office networks and Wi-Fi, with private links between offices.</dd></div>
+          <div class="service"><dt>Backup and recovery</dt><dd>Copies of your email and files, checked by actually restoring them.</dd></div>
+          <div class="service"><dt>Devices</dt><dd>Laptops and phones kept updated, and locked or wiped if one is lost.</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section switch" id="switching" aria-labelledby="switch-title">
+      <div class="wrap">
+        <h2 id="switch-title" class="h2">Switching is simple.</h2>
+        <p class="section-lead">We take over whatever you run today. You don't have to replace anything to start.</p>
+        <ol class="steps">
+          <li class="step">
+            <h3 class="h3"><span class="step-n">Step 1.</span> Free assessment</h3>
+            <p>We look at your systems and give you a written summary to keep, whether or not you sign up.</p>
           </li>
-          <li class="tl-step reveal">
-            <span class="tl-node" aria-hidden="true"></span>
-            <p class="tl-days">Days 31&ndash;60</p>
-            <h3 class="h3">Secure the basics</h3>
-            <ul class="tl-items">
-              <li>Block risky sign-ins and flag odd ones</li>
-              <li>Attack detection (EDR) on every device</li>
-              <li>Backups verified with a real test restore</li>
-              <li>Device encryption and remote wipe</li>
-              <li>Email filtering and anti-spoofing settings</li>
-              <li>Remove accounts for people who have left</li>
-            </ul>
+          <li class="step">
+            <h3 class="h3"><span class="step-n">Step 2.</span> We take over</h3>
+            <p>We collect the logins and documents from your current provider, so you don't have to chase them.</p>
           </li>
-          <li class="tl-step reveal">
-            <span class="tl-node" aria-hidden="true"></span>
-            <p class="tl-days">Days 61&ndash;90</p>
-            <h3 class="h3">Plan the next year</h3>
-            <ul class="tl-items">
-              <li>A written roadmap in plain English</li>
-              <li>Costs laid out to fit your budget year</li>
-              <li>Your first quarterly review with leadership</li>
-            </ul>
+          <li class="step">
+            <h3 class="h3"><span class="step-n">Step 3.</span> We run it</h3>
+            <p>From then on we handle day-to-day support and anything that goes wrong.</p>
           </li>
         </ol>
-
-        <div class="switch grid" id="switching">
-          <div class="col-5">
-            <p class="eyebrow reveal">Before day one</p>
-            <h3 class="h2-sm reveal reveal-d1">Switching to us.</h3>
-          </div>
-          <div class="col-7 switch-body">
-            <p class="reveal">We do the asking. You send one email to your current provider saying it's OK to hand things over, and we collect the rest:</p>
-            <ul class="check-list reveal reveal-d1">
-              <li>Microsoft 365 global admin and the transfer of your licenses</li>
-              <li>Your domain registration and DNS</li>
-              <li>Firewall, router and Wi-Fi logins</li>
-              <li>Backup accounts and any documentation they hold</li>
-            </ul>
-            <p class="reveal reveal-d2">We plan the switch around the notice period in your current contract and work alongside your current provider until every login is in your organization's name. Phones move last, and we test them before anything is switched off.</p>
-            <p class="reveal reveal-d3">Have your own IT person? We can split the work with them instead of taking it all over.</p>
-          </div>
-        </div>
       </div>
     </section>
 
-    <!-- 6. Monthly report -->
-    <section class="section sunk" id="monthly" aria-labelledby="monthly-title">
-      <div class="wrap grid">
-        <div class="col-5 monthly-copy">
-          <p class="eyebrow reveal">Every month</p>
-          <h2 id="monthly-title" class="h2 reveal reveal-d1">A report you can read in five minutes.</h2>
-          <p class="reveal reveal-d2">You shouldn't need an IT background to know what your IT provider did. Each month you get a short page you can hand to your owner, board or leadership team.</p>
-          <ul class="check-list reveal reveal-d3">
-            <li>How we did against our response goals</li>
-            <li>Every change to admin access, with who and why</li>
-            <li>A standing check-in call at a time that suits you</li>
-            <li>A quarterly review that lines up with your budget year</li>
-          </ul>
-        </div>
-
-        <div class="col-7 report-wrap">
-          <figure class="report-figure">
-            <div class="report reveal">
-              <div class="report-bar">
-                <span class="report-file">it-summary-september.pdf</span>
-                <span class="report-tag">Example</span>
-              </div>
-              <div class="report-page">
-                <div class="report-head">
-                  <p class="report-kicker">September IT summary</p>
-                  <p class="report-for">Prepared for your leadership team</p>
-                </div>
-                <div class="report-block rl-1">
-                  <h3 class="report-h">What we fixed</h3>
-                  <p>Two staff laptops were overdue for updates. Both are patched and back on schedule.</p>
-                  <p>The front-desk printer at one office kept dropping off the network. It now has a fixed address and has stayed connected.</p>
-                </div>
-                <div class="report-block rl-2">
-                  <h3 class="report-h">Response times</h3>
-                  <p>11 requests. Both urgent ones had one of us on them within our 30-minute goal. Eight of the other nine got a reply the same business day. The ninth came in late Friday and was answered Monday morning.</p>
-                </div>
-                <div class="report-block rl-3">
-                  <h3 class="report-h">What we're watching</h3>
-                  <p>A few emails posing as a shared invoice reached staff inboxes. Nobody clicked. We tightened the filter and will report back next month.</p>
-                </div>
-                <div class="report-block rl-4 report-decision">
-                  <h3 class="report-h">What needs a decision from you</h3>
-                  <p>Three laptops are past their supported age. Replacing them this year or next is a budget call. We've listed two options with costs.</p>
-                </div>
-                <div class="report-block rl-5">
-                  <h3 class="report-h">Next month</h3>
-                  <p>Finish separating guest Wi-Fi at the second office, and run the quarterly access review.</p>
-                </div>
-              </div>
-            </div>
-            <figcaption class="caption">Example of the format. Not real client data.</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- 7. Team -->
-    <section class="section" id="team" aria-labelledby="team-title">
-      <div class="wrap">
-        <div class="section-head">
-          <p class="eyebrow reveal">The team</p>
-          <h2 id="team-title" class="h2 reveal reveal-d1">Two people, and you'll know both of them.</h2>
-        </div>
-        <div class="team-grid">
-          <article class="person reveal" aria-labelledby="p1-name">
-            <div class="avatar avatar-k" aria-hidden="true">K</div>
-            <h3 id="p1-name" class="h3 person-name">Kiowa</h3>
-            <p class="person-role">Founder <span aria-hidden="true">/</span> Networking and platform</p>
-            <p>Kiowa plans and builds the parts everything else runs on: office networks, firewalls, links between sites, and the Microsoft 365, Entra and Teams setup your staff use all day. Kiowa has spent a long stretch setting up and running systems by hand, so the plans come from someone who has had to keep them working.</p>
-            <p>Kiowa also writes software. Sometimes a small tool is a better fix than another subscription.</p>
-          </article>
-          <article class="person reveal reveal-d1" aria-labelledby="p2-name">
-            <div class="avatar" aria-hidden="true">
-              <svg width="26" height="26" viewBox="0 0 24 24" focusable="false"><path d="M12 3l7.5 3v5.5c0 4.6-3.2 8.3-7.5 9.5-4.3-1.2-7.5-4.9-7.5-9.5V6z"/></svg>
-            </div>
-            <h3 id="p2-name" class="h3 person-name">Security lead</h3>
-            <p class="person-role">Helpdesk <span aria-hidden="true">/</span> Security</p>
-            <p>Our security lead runs the helpdesk and all the security work. That means protecting accounts and devices, handling attacks, training staff and locking down laptops and phones.</p>
-            <p>When something looks wrong, like a strange email, a sign-in from somewhere odd or a phone acting up, this is who staff reach. We keep support and security together on purpose. Whoever answers the call is also watching for trouble.</p>
-            <p>You'll meet our security lead at the assessment, and we'll share their background before you sign.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- 8. Questions worth asking -->
-    <section class="section sunk" id="questions" aria-labelledby="q-title">
-      <div class="wrap">
-        <div class="section-head">
-          <p class="eyebrow reveal">Before you choose</p>
-          <h2 id="q-title" class="h2 reveal reveal-d1">Questions worth asking any IT partner.</h2>
-        </div>
-        <dl class="qa">
-          <div class="qa-item reveal">
-            <dt>When a staff member needs help, who answers?</dt>
-            <dd>One of the two of us. At onboarding your staff get our direct contact details, and we learn who they are and how their office runs.</dd>
-          </div>
-          <div class="qa-item reveal reveal-d1">
-            <dt>Will the same person handle it next time?</dt>
-            <dd>It'll be one of the same two people every time, and we both know your setup, so nobody has to explain their office again.</dd>
-          </div>
-          <div class="qa-item reveal">
-            <dt>How fast do you respond?</dt>
-            <dd>Our goals: when something urgent comes in during support hours, one of us is on it within 30 minutes. Everything else gets a reply the same business day. The monthly report shows how we did against both.</dd>
-          </div>
-          <div class="qa-item reveal reveal-d1">
-            <dt>Can you explain last month's work without jargon?</dt>
-            <dd>That's what the monthly report is for. If a line in it needs a glossary, we rewrite the line.</dd>
-          </div>
-          <div class="qa-item reveal">
-            <dt>Is managed IT new for you?</dt>
-            <dd>The company is new, but we've been setting up and running networks, Microsoft 365 and security for a long time. Offering it as a managed service means we take on a small number of clients and both of us stay closely involved. In the assessment we'll show you the exact settings we'd use for your accounts, devices and network. Every login and document is in your own account, in your name, from the first month.</dd>
-          </div>
-          <div class="qa-item reveal reveal-d1">
-            <dt>What happens to our data if we part ways?</dt>
-            <dd>It stays yours. We hand back admin access, passwords and documentation cleanly, and we'll help whoever comes next get started.</dd>
-          </div>
-        </dl>
-        <p class="q-foot reveal">Ask anyone you're considering the same questions, us included.</p>
-      </div>
-    </section>
-
-    <!-- 9. Software (secondary) -->
-    <section class="section section-compact" id="software" aria-labelledby="sw-title">
-      <div class="wrap grid sw-grid">
-        <div class="col-5">
-          <p class="eyebrow reveal">Software</p>
-          <h2 id="sw-title" class="h2-sm reveal reveal-d1">We build software too.</h2>
-        </div>
-        <div class="col-7">
-          <p class="reveal">When a spreadsheet or an old paper form is slowing your staff down, we can build a small tool or website to replace it. You get it from the people who already know your systems.</p>
-          <p class="reveal reveal-d1">Our parent company, Mado Digital, has shipped apps and web tools, including Gomi Guide and Sourcemark.</p>
-          <p class="reveal reveal-d2"><a class="text-link" href="https://madodigital.net" rel="noopener">More at madodigital.net <span aria-hidden="true">&rarr;</span></a></p>
-        </div>
-      </div>
-    </section>
-
-    <!-- 10. FAQ -->
     <section class="section faq-section" id="faq" aria-labelledby="faq-title">
-      <div class="wrap faq-wrap">
-        <p class="eyebrow reveal">FAQ</p>
-        <h2 id="faq-title" class="h2 reveal reveal-d1">Common questions.</h2>
-        <div class="faq reveal reveal-d2">
-          <details>
-            <summary>What does the free assessment involve?<svg class="chev" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 7.5l5 5 5-5"/></svg></summary>
-            <div class="faq-body"><p>We start with a call, then visit your main office and any others where it makes sense. We look at your network and firewall, Microsoft 365 setup, devices, backups and security settings, and we talk with whoever handles IT today. You get a written summary of what we found and what we'd fix first. It's yours to keep whether or not you hire us.</p></div>
-          </details>
+      <div class="wrap split">
+        <div class="split-head">
+          <h2 id="faq-title" class="h2">Questions.</h2>
+        </div>
+        <div class="faq">
           <details>
             <summary>How is pricing set?<svg class="chev" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 7.5l5 5 5-5"/></svg></summary>
-            <div class="faq-body"><p>Flat monthly, quoted after the assessment, with lower rates for nonprofits. The number depends on how many people and sites you have, not on how many times you contact us. The quote lists the security and backup tools we use and whether each one is included in the monthly price or billed at cost, so it can go into a budget, or a grant, line by line. It also says what would cost extra, like new hardware or a large project.</p></div>
+            <p>A flat monthly price, quoted after the free assessment. It depends on how many people and offices you have. Nonprofits get lower rates.</p>
           </details>
           <details>
-            <summary>What are your hours, and what happens after hours?<svg class="chev" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 7.5l5 5 5-5"/></svg></summary>
-            <div class="faq-body"><p>Regular support runs on weekday business hours, with the exact hours set in your agreement. Outside them we keep an urgent route for a short list of emergencies: phones or internet down at an office, an account that looks compromised, a lost device with sensitive data on it, or signs of ransomware. Those reach both of us at any hour, and the callback goal goes in writing before you sign. Password resets and printer trouble wait until morning. We won't promise a round-the-clock helpdesk that two people can't honestly staff.</p></div>
+            <summary>Do we have to replace our current tools?<svg class="chev" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 7.5l5 5 5-5"/></svg></summary>
+            <p>No. We start with what you have. If something is too old to be safe, we tell you and show you the cost, and you decide when to replace it.</p>
           </details>
           <details>
-            <summary>Do you only work in Minnesota?<svg class="chev" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 7.5l5 5 5-5"/></svg></summary>
-            <div class="faq-body"><p>We're based in Sherburne County, northwest of the Twin Cities, and most day-to-day support happens remotely. When something can't be fixed from here, one of us comes to the office. During the assessment we agree how quickly we can reach each of your locations and put it in writing.</p></div>
+            <summary>Can you work with our in-house IT person?<svg class="chev" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 7.5l5 5 5-5"/></svg></summary>
+            <p>Yes. We can take the parts they don't have time for, like security and backups, and cover for them when they're away.</p>
           </details>
           <details>
-            <summary>Do we have to replace our current tools or hardware?<svg class="chev" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 7.5l5 5 5-5"/></svg></summary>
-            <div class="faq-body"><p>No. We start with what you have, whether that's Microsoft 365 or Google Workspace, and whatever computers and network gear are in the office. If something is too old to get security updates or puts you at risk, we tell you and show you the cost. You decide when to replace it.</p></div>
-          </details>
-          <details>
-            <summary>We have an in-house IT person. Can you work with them?<svg class="chev" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 7.5l5 5 5-5"/></svg></summary>
-            <div class="faq-body"><p>Yes. We split the work in the way that suits you. For example, they handle day-to-day requests and we handle security, backups and the network. We share documentation and access so either side can step in.</p></div>
-          </details>
-          <details>
-            <summary>Can you work alongside our current provider during a handover?<svg class="chev" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 7.5l5 5 5-5"/></svg></summary>
-            <div class="faq-body"><p>Yes. We work in parallel for an agreed period, collect admin access and documentation properly, and take over once nothing is left loose. <a href="#switching">Switching to us</a> lists what we collect.</p></div>
-          </details>
-          <details>
-            <summary>Do you help with Microsoft 365 licensing?<svg class="chev" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 7.5l5 5 5-5"/></svg></summary>
-            <div class="faq-body"><p>Yes, for businesses and nonprofits alike. For nonprofits: Microsoft ended its free Business Premium and Office 365 E1 grants for nonprofits, starting at each organization's first renewal after July 1, 2025. Business Basic is still free for up to 300 users, and the paid plans carry nonprofit discounts. Some protections on this page, like conditional access and Intune, need Business Premium or an add-on, and we'll show you the cost before suggesting it. We check what you have, what you pay for and what your staff actually use, then suggest the smallest setup that covers your security needs.</p></div>
-          </details>
-          <details>
-            <summary>What happens if one of you is out sick?<svg class="chev" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 7.5l5 5 5-5"/></svg></summary>
-            <div class="faq-body"><p>The other one covers. We both work in your environment, keep shared documentation of your setup, and hold the access needed to step in. If one of us will be away for a planned stretch, you'll hear about it ahead of time.</p></div>
+            <summary>Are you really available 24/7?<svg class="chev" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 7.5l5 5 5-5"/></svg></summary>
+            <p>Yes. Urgent problems, like an office that's offline or an account that's been hacked, get a response at any hour, every day.</p>
           </details>
         </div>
       </div>
     </section>
 
-    <!-- 11. Contact -->
     <section class="section contact" id="contact" aria-labelledby="contact-title">
       <div class="wrap contact-wrap">
-        <p class="eyebrow reveal">Contact</p>
-        <h2 id="contact-title" class="h2 reveal reveal-d1">Start with a free IT assessment.</h2>
-        <p class="lead reveal reveal-d2">Email us and we'll set up a call, then a visit to your office.</p>
+        <h2 id="contact-title" class="h2">Book a free IT assessment.</h2>
+        <p class="section-lead">Email us and we'll set up a time to look at your systems.</p>
         <p class="email-big"><span class="email-text" id="email-text">kiowa@madodigital.net</span></p>
         <div class="cta-row cta-center">
-          <a class="btn btn-primary btn-lg" href="mailto:kiowa@madodigital.net?subject=IT%20assessment%20request&amp;body=Hi%2C%0D%0A%0D%0AOrganization%20name%3A%20%0D%0ANumber%20of%20offices%3A%20%0D%0ARough%20staff%20count%3A%20%0D%0ABest%20time%20to%20talk%3A%20%0D%0A%0D%0AAnything%20else%20we%20should%20know%3A%20%0D%0A">
-            Book a free IT assessment <span class="btn-arrow" aria-hidden="true">&rarr;</span>
-          </a>
-          <button class="btn btn-ghost btn-lg copy-btn" type="button" data-copy="kiowa@madodigital.net" hidden>
+          <a class="btn btn-primary btn-lg" href="mailto:kiowa@madodigital.net?subject=IT%20assessment%20request&amp;body=Hi%2C%0D%0A%0D%0AOrganization%20name%3A%20%0D%0ANumber%20of%20offices%3A%20%0D%0ARough%20staff%20count%3A%20%0D%0ABest%20time%20to%20talk%3A%20%0D%0A%0D%0AAnything%20else%20we%20should%20know%3A%20%0D%0A">Email us</a>
+          <button class="btn btn-secondary btn-lg copy-btn" type="button" data-copy="kiowa@madodigital.net" hidden>
             <span class="copy-labels">
-              <span class="copy-label copy-idle">
-                <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8.5" y="8.5" width="11" height="11" rx="2"/><path d="M15.5 8.5V6a1.5 1.5 0 0 0-1.5-1.5H6A1.5 1.5 0 0 0 4.5 6v8A1.5 1.5 0 0 0 6 15.5h2.5"/></svg>
-                Copy email
-              </span>
-              <span class="copy-label copy-done" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
-                Copied
-              </span>
+              <span class="copy-label copy-idle">Copy email</span>
+              <span class="copy-label copy-done" aria-hidden="true">Copied</span>
             </span>
           </button>
         </div>
         <p class="copy-status" aria-live="polite" id="copy-status"></p>
-
-        <ol class="next-steps reveal" aria-label="What happens next">
-          <li><span class="step-n">1</span><span>You email us. One of us writes back, usually within a business day.</span></li>
-          <li><span class="step-n">2</span><span>We talk on a call, then visit your offices.</span></li>
-          <li><span class="step-n">3</span><span>You get a written summary to keep.</span></li>
-        </ol>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="wrap">
-      <div class="footer-row">
-        <div class="footer-brand">
-          <a class="logo" href="#top" aria-label="Northlink, back to top">
-            <svg class="logo-mark" width="28" height="28" aria-hidden="true" focusable="false"><use href="#mark"/></svg>
-            <span class="logo-text"><span class="brand-name">Northlink</span></span>
-          </a>
-          <p class="footer-meta">Managed IT and cybersecurity. A Mado Digital company, Sherburne County, Minnesota.</p>
-        </div>
-        <ul class="footer-links">
-          <li><a href="https://madodigital.net" rel="noopener">madodigital.net</a></li>
-          <li><span class="footer-email">kiowa@madodigital.net</span></li>
-          <li><a href="/.well-known/security.txt">Report a security issue</a></li>
-        </ul>
+    <div class="wrap footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="#top" aria-label="Northlink, back to top">
+          <svg class="logo-mark" width="26" height="26" aria-hidden="true" focusable="false"><use href="#mark"/></svg>
+          <span class="brand-name">Northlink</span>
+        </a>
+        <p><span class="brand-name">Northlink</span> is a Mado Digital company, based in Sherburne County, Minnesota.</p>
+        <p><a href="https://madodigital.net" rel="noopener">Mado Digital</a> also builds custom software.</p>
       </div>
-      <div class="footer-row footer-small">
-        <p>This site doesn't load anything from other companies. It has no trackers or cookies, and its fonts and scripts are hosted here. We'd want your customers and clients treated the same way.</p>
-        <p>&copy; 2026 Mado Digital LLC. <span class="brand-name">Northlink</span> is a Mado Digital company.</p>
-      </div>
+      <ul class="footer-links">
+        <li><a href="mailto:kiowa@madodigital.net">kiowa@madodigital.net</a></li>
+        <li><a href="https://madodigital.net" rel="noopener">madodigital.net</a></li>
+        <li><a href="/.well-known/security.txt">Report a security issue</a></li>
+      </ul>
+    </div>
+    <div class="wrap footer-small">
+      <p>&copy; 2026 Mado Digital LLC</p>
+      <p>This site has no trackers or cookies.</p>
     </div>
   </footer>
 </body>
