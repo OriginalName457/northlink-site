@@ -532,12 +532,12 @@ html.js .reveal--hero.is-in { transition-duration: var(--dur-hero); }
 }
 
 /* ---------- Why band ---------- */
-.why-grid { align-items: end; row-gap: var(--s-6); }
+.why-grid { align-items: start; row-gap: var(--s-6); }
 .why-head { grid-column: 1 / span 6; }
 .why-head .h2 { margin-top: var(--s-4); }
-.why-body { grid-column: 8 / span 5; color: var(--ink-2); font-size: var(--fs-lead); line-height: 1.55; text-wrap: pretty; }
-.why .facts { margin-top: var(--s-12); }
-@media (max-width: 64rem) { .why-head, .why-body { grid-column: 1 / -1; } .why-body { max-width: 36rem; } }
+.why-body { grid-column: 7 / span 6; margin-top: calc(var(--s-4) + 1.1rem); color: var(--ink-2); font-size: var(--fs-lead); line-height: 1.55; text-wrap: pretty; }
+.why .facts { margin-top: clamp(3rem, 2rem + 4vw, 5.5rem); }
+@media (max-width: 64rem) { .why-head, .why-body { grid-column: 1 / -1; } .why-body { max-width: 36rem; margin-top: 0; } }
 
 /* ---------- Minnesota ---------- */
 .mn-grid { align-items: center; row-gap: var(--s-8); }
