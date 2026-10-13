@@ -8,6 +8,69 @@
   const DRAFT_KEY = 'northlink-assessment';
   const QUESTION_STEPS = 6;
 
+  /* ---------- Email check ----------
+     Catches addresses that can't work and common domain typos, so we can reply.
+     Returns '' when fine, 'suggest' when a typo fix was offered, or a message.
+     A suggestion is offered once; sending the same address again goes through. */
+  const DOMAINS = ['gmail.com', 'yahoo.com', 'outlook.com', 'hotmail.com', 'icloud.com', 'aol.com', 'live.com', 'msn.com', 'comcast.net', 'protonmail.com', 'me.com'];
+  const EMAIL_RE = /^[^\s@,;<>()]+@[^\s@,;<>()]+\.[A-Za-z]{2,}$/;
+  const dist = (a, b) => {
+    const d = Array.from({ length: a.length + 1 }, (_, i) => [i]);
+    for (let j = 1; j <= b.length; j += 1) d[0][j] = j;
+    for (let i = 1; i <= a.length; i += 1) {
+      for (let j = 1; j <= b.length; j += 1) {
+        d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+      }
+    }
+    return d[a.length][b.length];
+  };
+  const suggestEmail = (v) => {
+    const at = v.lastIndexOf('@');
+    if (at < 1) return '';
+    const user = v.slice(0, at);
+    const typed = v.slice(at + 1).toLowerCase();
+    const dom = typed.replace(/\.(con|cmo|ocm|comm|cm|vom|xom)$/, '.com');
+    if (DOMAINS.includes(dom)) return dom === typed ? '' : `${user}@${dom}`;
+    let best = '';
+    let bestD = 3;
+    DOMAINS.forEach((k) => { const n = dist(dom, k); if (n < bestD) { bestD = n; best = k; } });
+    if (best && bestD <= 2) return `${user}@${best}`;
+    return dom !== typed ? `${user}@${dom}` : '';
+  };
+  const offered = new WeakMap();
+  const checkEmail = (input, err) => {
+    const v = input.value.trim();
+    input.value = v;
+    if (!v) return 'Enter your email so we can reply.';
+    if (!EMAIL_RE.test(v)) return 'That email doesn\'t look right. Check it so we can reply.';
+    const sug = suggestEmail(v);
+    if (sug && offered.get(input) !== v) {
+      offered.set(input, v);
+      if (err) {
+        err.textContent = 'Did you mean ';
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'msg-fix';
+        b.textContent = sug;
+        b.addEventListener('click', () => {
+          input.value = sug;
+          err.hidden = true;
+          input.removeAttribute('aria-invalid');
+          input.focus();
+        });
+        err.append(b, document.createTextNode('?'));
+      }
+      return 'suggest';
+    }
+    return '';
+  };
+  const showErr = (input, err, msg) => {
+    if (!err) return;
+    if (msg && msg !== 'suggest') err.textContent = msg;
+    err.hidden = !msg;
+    if (msg) input.setAttribute('aria-invalid', 'true'); else input.removeAttribute('aria-invalid');
+  };
+
   const init = () => {
     const dlg = document.getElementById('assess');
     if (!dlg || typeof dlg.showModal !== 'function') return;
@@ -88,9 +151,14 @@
         if (!input || wrap.hidden) return;
         const v = input.value.trim();
         let msg = '';
-        if (input.required && !v) msg = 'Please fill this in.';
-        else if (input.type === 'email' && v && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) msg = 'That email doesn\'t look right.';
-        setErr(wrap, msg);
+        if (input.type === 'email') {
+          msg = checkEmail(input, wrap.querySelector('.as-err'));
+          if (msg === 'suggest') showErr(input, wrap.querySelector('.as-err'), msg);
+          else setErr(wrap, msg);
+        } else {
+          if (input.required && !v) msg = 'Please fill this in.';
+          setErr(wrap, msg);
+        }
         if (msg && !first) first = input;
       });
       stepEl.querySelectorAll('[data-group][data-required]').forEach((fs) => {
@@ -377,10 +445,9 @@
         const err = wrap.querySelector('.as-err');
         const v = input.value.trim();
         let msg = '';
-        if (input.required && !v) msg = 'Please fill this in.';
-        else if (input.type === 'email' && v && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) msg = 'That email doesn\'t look right.';
-        err.textContent = msg; err.hidden = !msg;
-        if (msg) input.setAttribute('aria-invalid', 'true'); else input.removeAttribute('aria-invalid');
+        if (input.type === 'email') msg = checkEmail(input, err);
+        else if (input.required && !v) msg = 'Please fill this in.';
+        showErr(input, err, msg);
         if (msg && !first) first = input;
       });
       if (first) first.focus();
@@ -444,7 +511,74 @@
     });
   };
 
-  const boot = () => { init(); initQuick(); };
+  /* ---------- Contact message ---------- */
+  const initMsg = () => {
+    const form = document.querySelector('[data-msg]');
+    const dlg = document.getElementById('assess');
+    if (!form || !dlg) return;
+    const email = form.querySelector('#m-email');
+    const text = form.querySelector('#m-text');
+    const emailErr = form.querySelector('#m-email-err');
+    const textErr = form.querySelector('#m-text-err');
+    const btn = form.querySelector('.msg-send');
+    const status = form.querySelector('.msg-status');
+    const done = form.querySelector('[data-msg-done]');
+    const live = Array.from(form.children).filter((c) => c !== done);
+    form.addEventListener('input', (e) => {
+      if (e.target.getAttribute('aria-invalid') === 'true') showErr(e.target, e.target === email ? emailErr : textErr, '');
+    });
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (btn.getAttribute('aria-busy') === 'true') return;
+      const eMsg = checkEmail(email, emailErr);
+      showErr(email, emailErr, eMsg);
+      const tMsg = text.value.trim() ? '' : 'Write your message.';
+      showErr(text, textErr, tMsg);
+      if (eMsg) { email.focus(); return; }
+      if (tMsg) { text.focus(); return; }
+      const payload = {
+        _subject: `Website message from ${email.value}`,
+        _template: 'table',
+        _captcha: 'false',
+        _honey: form.elements._honey.value,
+        email: email.value,
+        Message: text.value.trim(),
+        Submitted: new Date().toLocaleString(),
+      };
+      btn.setAttribute('aria-busy', 'true');
+      btn.textContent = 'Sending';
+      status.textContent = '';
+      status.classList.remove('is-error');
+      let ok = false;
+      try {
+        const res = await fetch(dlg.dataset.endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const j = await res.json().catch(() => ({}));
+        ok = res.ok && String(j.success) === 'true';
+      } catch (err) { ok = false; }
+      btn.removeAttribute('aria-busy');
+      btn.textContent = 'Send message';
+      if (ok) {
+        done.querySelector('[data-msg-email]').textContent = payload.email;
+        live.forEach((c) => { c.hidden = true; });
+        done.hidden = false;
+        done.focus({ preventScroll: true });
+        requestAnimationFrame(() => requestAnimationFrame(() => done.classList.add('is-in')));
+      } else {
+        status.classList.add('is-error');
+        status.textContent = 'That didn\'t go through. ';
+        const a = document.createElement('a');
+        a.href = `mailto:${dlg.dataset.mailto}?subject=${encodeURIComponent('Website message')}&body=${encodeURIComponent(payload.Message)}`;
+        a.textContent = 'Email us instead';
+        status.append(a, document.createTextNode('.'));
+      }
+    });
+  };
+
+  const boot = () => { init(); initQuick(); initMsg(); };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
   else boot();
 })();

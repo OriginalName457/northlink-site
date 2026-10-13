@@ -545,7 +545,7 @@
               <div class="acc-body"><div class="acc-inner"><p>In Minnesota, and all of our support happens in the US.</p></div></div>
             </details>
           </div>
-          <p class="faq-note">Have another question? <a class="inline-link" href="mailto:kiowa@madodigital.net">Email us</a>.</p>
+          <p class="faq-note">Have another question? <a class="inline-link" href="#contact">Send us a message</a>.</p>
         </div>
       </div>
     </section>
@@ -557,28 +557,40 @@
           <div class="section-head">
             <p class="eyebrow reveal">Contact</p>
             <h2 class="h2 reveal" id="contact-title">Book a free IT assessment</h2>
-            <p class="lead reveal dl-1">The assessment form takes about three minutes and gives us what we need to get started. You keep the written summary either way. Have a question first? Send us a message.</p>
+            <p class="lead reveal dl-1">The assessment form takes about three minutes and gives us what we need to get started. You keep the written summary either way.</p>
+            <div class="contact-ctas reveal dl-2">
+              <a class="btn btn--primary" href="#assessment" data-assess>Start the assessment</a>
+            </div>
+            <p class="contact-alt reveal dl-2">Have a question first? Send us a message. Use an email you check, since that's where we'll reply.</p>
           </div>
         </div>
         <div class="contact-art reveal dl-1">
-          <figure class="artifact compose" data-loop>
+          <form class="artifact compose msg-form" data-msg novalidate>
             <div class="artifact-head">
               <span class="chip">New message</span>
             </div>
-            <p class="compose-field"><span class="compose-label">To</span><span class="compose-val" id="email-text">kiowa@madodigital.net</span></p>
-            <p class="compose-field"><span class="compose-label">Subject</span><span class="compose-val">A question about IT support</span></p>
-            <div class="compose-body">
-              <p class="compose-greet">Hi,</p>
-              <p class="compose-prompt">We're looking at our IT options and wanted to ask about<span class="caret" aria-hidden="true"></span></p>
+            <p class="compose-field"><span class="compose-label">To</span><span class="compose-val">Northlink</span></p>
+            <div class="compose-field msg-from">
+              <label class="compose-label" for="m-email">Your email</label>
+              <input class="msg-input" id="m-email" name="email" type="email" autocomplete="email" required aria-describedby="m-email-err">
             </div>
-            <figcaption class="sr-only">Example of a message to us</figcaption>
-          </figure>
-          <div class="contact-ctas">
-            <a class="btn btn--primary" href="#assessment" data-assess>Start the assessment</a>
-            <a class="btn btn--secondary" href="mailto:kiowa@madodigital.net">Email us</a>
-            <button class="btn btn--secondary copy-btn" type="button" data-copy="kiowa@madodigital.net" hidden>Copy address</button>
-          </div>
-          <p class="sr-only" aria-live="polite" id="copy-status"></p>
+            <p class="as-err msg-err" id="m-email-err" hidden></p>
+            <div class="compose-body">
+              <label class="compose-label msg-label" for="m-text">Message</label>
+              <textarea class="msg-text" id="m-text" name="message" rows="5" required aria-describedby="m-text-err"></textarea>
+              <p class="as-err" id="m-text-err" hidden></p>
+            </div>
+            <input class="sr-only" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <div class="msg-foot">
+              <p class="msg-status" role="status" aria-live="polite"></p>
+              <button class="btn btn--secondary btn--sm msg-send" type="submit">Send message</button>
+            </div>
+            <div class="msg-done" data-msg-done hidden tabindex="-1">
+              <svg class="as-check" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="32" r="30"/><path d="M20 33l8 8 16-17" pathLength="1"/></svg>
+              <p class="quick-done-title">Message sent</p>
+              <p class="quick-sub">We'll write back to <span data-msg-email></span>.</p>
+            </div>
+          </form>
         </div>
       </div>
     </section>
