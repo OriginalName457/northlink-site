@@ -236,6 +236,8 @@ main:focus { outline: none; }
   font-variant-numeric: tabular-nums slashed-zero;
 }
 .eyebrow-num { color: var(--accent); }
+.eyebrow-extra { margin-left: -0.75em; }
+@media (max-width: 40rem) { .eyebrow-extra { display: none; } }
 
 /* Section head rhythm: eyebrow 16 h2 20 lead 48 content */
 .section-head .h2 { margin-top: var(--s-4); }
