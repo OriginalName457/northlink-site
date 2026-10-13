@@ -211,8 +211,8 @@ textarea.as-input { min-height: 6.5rem; resize: vertical; line-height: 1.5; }
   .as { transform: none; }
 }
 
-/* ---------- Quick request (under the hero) ---------- */
-.quick { padding-bottom: clamp(3rem, 2rem + 3vw, 4.5rem); }
+/* ---------- Quick request ---------- */
+.quick { padding-block: clamp(3rem, 2rem + 3vw, 4.5rem); }
 .quick-card {
   display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--s-8) var(--s-10);
   align-items: center;
@@ -246,7 +246,6 @@ textarea.as-input { min-height: 6.5rem; resize: vertical; line-height: 1.5; }
 }
 
 /* ---------- Contact message form ---------- */
-.contact-alt { margin-top: var(--s-6); color: var(--ink-2); font-size: var(--fs-body); max-width: 30rem; }
 .msg-form { display: block; }
 .msg-from { align-items: center; padding-block: 0.25rem; transition: background-color var(--dur-swap) ease; }
 .msg-from:focus-within { background: color-mix(in oklab, var(--accent) 7%, transparent); }

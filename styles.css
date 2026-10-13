@@ -796,7 +796,7 @@ html.js .weekgrid:not(.is-in) .wg-cell { opacity: 0; }
 .contact-art { grid-column: 7 / span 6; }
 @media (max-width: 64rem) {
   .contact-copy, .contact-art { grid-column: 1 / -1; }
-  .contact-art { max-width: 36rem; }
+  .contact-art { max-width: 36rem; margin-top: var(--s-8); }
 }
 .compose-field {
   display: grid; grid-template-columns: 8ch minmax(0, 1fr); gap: var(--s-3); align-items: baseline;
@@ -812,7 +812,6 @@ html.js .weekgrid:not(.is-in) .wg-cell { opacity: 0; }
   display: inline-block; width: 1px; height: 1.1em; margin-left: 2px;
   background: var(--accent); vertical-align: text-bottom;
 }
-.contact-ctas { display: flex; flex-wrap: wrap; gap: var(--s-3); margin-top: var(--s-5); }
 @keyframes caret-blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
 
 /* ---------- Toasts (after Sonner): enter from the bottom, stack, leave the same way ---------- */
@@ -920,7 +919,7 @@ html.is-hidden *, html.is-hidden *::before, html.is-hidden *::after {
 
 /* ---------- Print ---------- */
 @media print {
-  .site-header .btn, .oncall, .replay, .contact-ctas, .toaster, .skip-link { display: none !important; }
+  .site-header .btn, .oncall, .replay, .toaster, .skip-link { display: none !important; }
   html.js .reveal { opacity: 1; transform: none; }
 }
 
