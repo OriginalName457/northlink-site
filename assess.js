@@ -94,7 +94,7 @@
     let sent = false;
 
     /* ---------- Answers ---------- */
-    const values = () => {
+    const rawValues = () => {
       const fd = new FormData(form);
       const out = {};
       for (const [k, v] of fd.entries()) {
@@ -106,9 +106,22 @@
       }
       return out;
     };
+    /* A "Something else" answer is replaced by what they typed, e.g. "Zoho Mail". */
+    const values = () => {
+      const out = rawValues();
+      Object.keys(out).filter((k) => k.endsWith('__other')).forEach((k) => {
+        const base = k.slice(0, -'__other'.length);
+        const detail = out[k];
+        delete out[k];
+        const swap = (v) => (v === 'Something else' ? detail : v);
+        if (Array.isArray(out[base])) out[base] = out[base].map(swap);
+        else if (out[base]) out[base] = swap(out[base]);
+      });
+      return out;
+    };
     const saveDraft = () => {
       if (sent) return;
-      try { localStorage.setItem(DRAFT_KEY, JSON.stringify({ v: values(), step: current })); } catch (e) {}
+      try { localStorage.setItem(DRAFT_KEY, JSON.stringify({ v: rawValues(), step: current })); } catch (e) {}
     };
     const clearDraft = () => { try { localStorage.removeItem(DRAFT_KEY); } catch (e) {} };
     const restoreDraft = () => {
@@ -127,17 +140,26 @@
     };
 
     /* ---------- Conditional fields ---------- */
-    const syncConditional = () => {
+    const syncConditional = (animate) => {
       dlg.querySelectorAll('[data-show-when]').forEach((el) => {
-        const picked = (form.querySelector(`input[name="${el.dataset.showWhen}"]:checked`) || {}).value;
-        el.hidden = !el.dataset.showValues.split('|').includes(picked);
+        const picked = Array.from(form.querySelectorAll(`input[name="${el.dataset.showWhen}"]:checked`)).map((i) => i.value);
+        const show = el.dataset.showValues.split('|').some((v) => picked.includes(v));
+        if (show === !el.hidden) return;
+        el.hidden = !show;
+        if (show && animate) {
+          if (!reduce.matches) {
+            el.animate([{ opacity: 0, transform: 'translateY(-4px)' }, { opacity: 1, transform: 'none' }], { duration: 240, easing: EASE });
+          }
+          const input = el.querySelector('.as-input');
+          if (input && window.matchMedia('(hover: hover) and (pointer: fine)').matches) input.focus({ preventScroll: true });
+        }
       });
     };
 
     /* ---------- Validation ---------- */
     const setErr = (wrap, msg) => {
-      const err = wrap.querySelector('.as-err');
-      const input = wrap.querySelector('.as-input');
+      const err = wrap.querySelector(':scope > .as-err');
+      const input = wrap.classList.contains('as-field') ? wrap.querySelector('.as-input') : null;
       if (err) { err.textContent = msg || ''; err.hidden = !msg; }
       if (input) {
         if (msg) { input.setAttribute('aria-invalid', 'true'); if (err) { err.id = err.id || `${input.id}-err`; input.setAttribute('aria-describedby', err.id); } }
@@ -410,7 +432,7 @@
       advance();
     });
     form.addEventListener('change', (e) => {
-      syncConditional();
+      syncConditional(true);
       const wrap = e.target.closest('[data-group]');
       if (wrap && wrap.querySelector('input:checked')) setErr(wrap, '');
       saveDraft();

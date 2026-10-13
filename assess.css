@@ -279,3 +279,5 @@ textarea.as-input { min-height: 6.5rem; resize: vertical; line-height: 1.5; }
 .msg-form .compose-field { grid-template-columns: 11ch minmax(0, 1fr); }
 .msg-form .as-err, .msg-done .quick-sub, .msg-status { font-family: var(--font-sans); }
 .msg-label { display: block; margin-bottom: 0.25rem; font-family: var(--font-mono); font-size: var(--fs-artifact); }
+
+.as-other { margin-top: 0.875rem; max-width: 26rem; }
