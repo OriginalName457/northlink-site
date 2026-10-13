@@ -361,6 +361,90 @@
     window.addEventListener('hashchange', () => { if (location.hash === '#assessment') open(); });
   };
 
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
-  else init();
+  /* ---------- Quick request under the hero ---------- */
+  const initQuick = () => {
+    const form = document.querySelector('[data-quick]');
+    const dlg = document.getElementById('assess');
+    if (!form || !dlg) return;
+    const done = document.querySelector('[data-quick-done]');
+    const btn = form.querySelector('.quick-send');
+    const status = form.querySelector('.quick-status');
+    const fields = Array.from(form.querySelectorAll('.as-field'));
+    const check = () => {
+      let first = null;
+      fields.forEach((wrap) => {
+        const input = wrap.querySelector('.as-input');
+        const err = wrap.querySelector('.as-err');
+        const v = input.value.trim();
+        let msg = '';
+        if (input.required && !v) msg = 'Please fill this in.';
+        else if (input.type === 'email' && v && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) msg = 'That email doesn\'t look right.';
+        err.textContent = msg; err.hidden = !msg;
+        if (msg) input.setAttribute('aria-invalid', 'true'); else input.removeAttribute('aria-invalid');
+        if (msg && !first) first = input;
+      });
+      if (first) first.focus();
+      return !first;
+    };
+    form.addEventListener('input', (e) => {
+      if (e.target.getAttribute('aria-invalid') === 'true' && e.target.value.trim()) {
+        e.target.removeAttribute('aria-invalid');
+        const err = e.target.closest('.as-field').querySelector('.as-err');
+        err.hidden = true;
+      }
+    });
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (btn.getAttribute('aria-busy') === 'true' || !check()) return;
+      const v = Object.fromEntries(new FormData(form).entries());
+      const payload = {
+        _subject: `Quick assessment request: ${v.org.trim()}`,
+        _template: 'table',
+        _captcha: 'false',
+        _honey: v._honey || '',
+        Summary: `${v.name.trim()} at ${v.org.trim()} wants a free assessment. Email them to set up a time.`,
+        Name: v.name.trim(),
+        Organization: v.org.trim(),
+        email: v.email.trim(),
+        Phone: (v.phone || '').trim() || 'Not given',
+        Submitted: new Date().toLocaleString(),
+      };
+      btn.setAttribute('aria-busy', 'true');
+      btn.textContent = 'Sending';
+      status.textContent = ''; status.classList.remove('is-error');
+      let ok = false;
+      try {
+        const res = await fetch(dlg.dataset.endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const j = await res.json().catch(() => ({}));
+        ok = res.ok && String(j.success) === 'true';
+      } catch (err) { ok = false; }
+      btn.removeAttribute('aria-busy');
+      btn.textContent = 'Send request';
+      if (ok) {
+        const first = payload.Name.split(/\s+/)[0];
+        done.querySelector('[data-quick-first]').textContent = first ? `, ${first}` : '';
+        done.querySelector('[data-quick-email]').textContent = payload.email;
+        form.hidden = true;
+        done.hidden = false;
+        done.focus({ preventScroll: true });
+        requestAnimationFrame(() => requestAnimationFrame(() => done.classList.add('is-in')));
+      } else {
+        const body = Object.keys(payload).filter((k) => !k.startsWith('_')).map((k) => `${k === 'email' ? 'Email' : k}: ${payload[k]}`).join('\n');
+        status.classList.add('is-error');
+        status.textContent = 'That didn\'t go through. ';
+        const a = document.createElement('a');
+        a.href = `mailto:${dlg.dataset.mailto}?subject=${encodeURIComponent(payload._subject)}&body=${encodeURIComponent(body)}`;
+        a.textContent = 'Send it by email instead';
+        status.append(a, document.createTextNode('.'));
+      }
+    });
+  };
+
+  const boot = () => { init(); initQuick(); };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+  else boot();
 })();
