@@ -542,6 +542,7 @@ html.js .reveal--hero.is-in { transition-duration: var(--dur-hero); }
 /* ---------- Minnesota ---------- */
 .mn-grid { align-items: center; row-gap: var(--s-8); }
 .mn-copy { grid-column: 1 / span 7; }
+.mn-list { margin-top: var(--s-6); max-width: 36rem; }
 .mn-art { grid-column: 9 / span 4; justify-self: center; }
 .mn-art img { display: block; width: auto; height: clamp(220px, 18vw, 280px); opacity: 0.42; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .mn-art img { opacity: 0.5; } }
